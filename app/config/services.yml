@@ -33,3 +33,9 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+    app.blackmirror:
+        public: true
+        class: AppBundle\Blackmirror\Blackmirror
+        arguments:
+            - '@csa_guzzle.client.blackmirror'
+            - '@jms_serializer'

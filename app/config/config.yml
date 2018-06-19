@@ -30,6 +30,8 @@ framework:
     assets: ~
     php_errors:
         log: true
+    templating:
+        engines: ['twig']
 
 # Twig Configuration
 twig:
@@ -65,3 +67,17 @@ swiftmailer:
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }
+csa_guzzle:
+    clients:
+        blackmirror: 
+            config:
+                base_uri: http://adneomapisubject.herokuapp.com
+                headers:
+                  X-Auth-Token : TokenADNTest2018
+                  method :  GET
+          
+        tvmaze:
+            config:
+                base_uri: http://api.tvmaze.com/
+                headers:
+                  method :  GET    
