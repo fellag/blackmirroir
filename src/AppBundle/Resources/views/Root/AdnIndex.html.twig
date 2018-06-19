@@ -1,0 +1,56 @@
+{% extends 'AppBundle::base_layout.html.twig' %}
+
+
+{% block content %}
+
+<div class="panel panel-info">
+
+	<div class="panel-heading">
+	<h1 class="panel-title">  {{  films.name }}</h1>
+	</div>
+
+	<div class="panel-body">
+		<div class="container">
+			<div class="row">
+								<div class="col-md-5" >
+									<img src="{{  films.image.medium }}"    />	 
+								</div>
+
+								<div class="col-md-7" >
+									<strong>  Summary :</strong>    {{  films.summary | raw}}
+								</div>
+
+			</div> 
+		</div>
+		<div class="container">	 
+				<h3 class="heading">  Episodes :</h3>
+	 
+			<div class="row">
+			{% for serie in films.episodes %}		  
+
+
+								<div class="col-md-6" >
+										<div class="col-md-4" >
+											<img src="{{ serie.image.medium  }} " class="img-thumbnail" />
+										</div>
+
+										<div class="col-md-8" >
+											<h2> {{ serie.name  }} </h2>
+											<a href="{{ path('detail_serie',{'uniqId':serie.id}) }}"> 	see details </a>
+										</div>
+								</div>
+
+
+			{% endfor %}
+			</div>
+		</div>	
+	</div>
+	
+	
+	     
+		
+		
+</div>
+
+{% endblock %}
+
